@@ -16,7 +16,7 @@ st.write("Total Records", cursor_items.count())
 st.write("Timely Done", db.complaints.count_documents({ "timely": "Yes"}))
 st.write("Timely Not Done", db.complaints.count_documents({ "timely": {"$ne":"Yes"}}))
 
-for item in items:
-    st.write(f"{item['product']} has a :{item['complaint_what_happened']}:")
+# for item in items:
+#     st.write(f"{item['product']} has a :{item['complaint_what_happened']}:")
 
-# st.write(items)
+st.write(df.head())
