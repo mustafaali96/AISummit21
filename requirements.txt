@@ -3,3 +3,4 @@ pandas
 matplotlib
 dnspython==2.0.0
 pymongo[srv]
+pdmongo 
