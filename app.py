@@ -1,6 +1,7 @@
 import streamlit as st
 import pymongo
 import pandas as pd
+from pandas.io.json import json_normalize
 
 # Initialize connection.
 # client = pymongo.MongoClient(**st.secrets["mongo"])
@@ -9,8 +10,9 @@ client = pymongo.MongoClient("mongodb+srv://mustafa:66762532mufa@aisummit21.5l1c
 
 db = client.customer_complaints
 cursor_items = db.complaints.find()
-items = list(cursor_items)
-df = pd.DataFrame(items)
+# items = list(cursor_items)
+# df = pd.DataFrame(items)
+df = json_normalize(list(cursor_items))
 
 st.title('AI Summit 21 Demo!')
 # st.header('This is a header')
