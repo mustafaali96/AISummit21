@@ -26,4 +26,4 @@ for item in cursor_items:
     all_records.append(item)
 df = pd.DataFrame(all_records)
 
-st.write(df)
+st.table(df)
