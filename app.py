@@ -12,8 +12,7 @@ items = db.complaints.find()
 items = list(items)
 df = pd.DataFrame(items)
 
-total_records = items.count()
-st.write("Total Records Found", items.count())
+st.write("Total Records Found", db.complaints.count_documents())
 st.write("Timely Done", db.complaints.count_documents({ "timely": "Yes"}))
 st.write("Timely Not Done", db.complaints.count_documents({ "timely": {"$ne":"Yes"}}))
 
