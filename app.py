@@ -12,6 +12,9 @@ cursor_items = db.complaints.find()
 items = list(cursor_items)
 df = pd.DataFrame(items)
 
+st.title('AI Summit 21 Demo!')
+# st.header('This is a header')
+
 st.write("Total Records", cursor_items.count())
 st.write("Timely Done", db.complaints.count_documents({ "timely": "Yes"}))
 st.write("Timely Not Done", db.complaints.count_documents({ "timely": {"$ne":"Yes"}}))
@@ -19,4 +22,4 @@ st.write("Timely Not Done", db.complaints.count_documents({ "timely": {"$ne":"Ye
 # for item in items:
 #     st.write(f"{item['product']} has a :{item['complaint_what_happened']}:")
 
-st.write(df.head())
+st.write(df)
