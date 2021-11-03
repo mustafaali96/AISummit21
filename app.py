@@ -8,11 +8,11 @@ client = pymongo.MongoClient("mongodb+srv://mustafa:66762532mufa@aisummit21.5l1c
 
 
 db = client.customer_complaints
-items = db.complaints.find()
-items = list(items)
+cursor_items = db.complaints.find()
+items = list(cursor_items)
 df = pd.DataFrame(items)
 
-# st.write("Total Records Found", db.complaints.count_documents())
+st.write("Total Records", cursor_items.count())
 st.write("Timely Done", db.complaints.count_documents({ "timely": "Yes"}))
 st.write("Timely Not Done", db.complaints.count_documents({ "timely": {"$ne":"Yes"}}))
 
